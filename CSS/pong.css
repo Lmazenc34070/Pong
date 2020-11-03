@@ -2,7 +2,7 @@ body{
     background-color: #000;
     color: #fff;
     font-family: monospace;
-    
+
     /** Centre les éléments au centre de la page **/
     display: flex;
     min-height: 100vh;
@@ -15,7 +15,9 @@ body{
 
 #terrain{
     position: relative;
-    border: 1px solid white; /** Rends la bordure visible. **/
+    border: 1px solid white; /** Rends la bordure visible et de couleur blanche. **/
+    
+    /** Dimension du terrain **/
     width: 800px;
     height: 400px;
 
