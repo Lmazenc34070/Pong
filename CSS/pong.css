@@ -2,6 +2,8 @@ body{
     background-color: #000;
     color: #fff;
     font-family: monospace;
+    
+    /** Centre les éléments au centre de la page **/
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -13,7 +15,7 @@ body{
 
 #terrain{
     position: relative;
-    border: 1px solid white;
+    border: 1px solid white; /** Rends la bordure visible. **/
     width: 800px;
     height: 400px;
 
@@ -21,8 +23,10 @@ body{
 
 #balle{
     position: absolute;
-    top:50%;
-    left: 50%;
+    top:50%; /** Mets la balle au centre de l'écran en hauteur **/
+    left: 50%; /** Mets la balle au centre de l'écran en largeur **/
+
+    /** Dimension, couleur et arrondi des angles du carré qui devient un cercle (la balle) **/
     width: 20px;
     height: 20px;
     background-color: white;
