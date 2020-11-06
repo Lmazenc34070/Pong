@@ -3,7 +3,7 @@ body{
     color: #fff;
     font-family: monospace;
 
-    /** Centre les éléments au centre de la page **/
+    /** Centre les éléments de la page **/
     display: flex;
     min-height: 100vh;
     flex-direction: column;
