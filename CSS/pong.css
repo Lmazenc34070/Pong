@@ -34,3 +34,21 @@ body{
     background-color: white;
     border-radius: 100%;
 }
+
+#raquette1{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 20px;
+    height: 60px;
+    background-color: white;
+}
+
+#raquette2{
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    width: 20px;
+    height: 60px;
+    background-color: white;
+}
