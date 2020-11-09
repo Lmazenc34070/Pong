@@ -3,8 +3,8 @@ class Raquette{
         this.$element=$element;
         this.mouvement1=parseInt($("#raquette1").css("top"));
         this.mouvement2=parseInt($("#raquette2").css("top"));
-        this.vitRaquette1=3;
-        this.vitRaquette2=1;
+        this.vitRaquette1=3;//Attribue une vitesse aux raquettes.
+        this.vitRaquette2=3;//Attribue une vitesse aux raquettes.
     }
     bougeRect(){
         this.$element.css("top",raquette1.mouvement1);
@@ -12,8 +12,8 @@ class Raquette{
     }
     
 }
-let raquette1 = new Raquette($("#raquette1"));
-let raquette2 = new Raquette($("#raquette2"));
+let raquette1 = new Raquette($("#raquette1"));//Création des raquettes au sein de la classe "Raquette"
+let raquette2 = new Raquette($("#raquette2"));//Création des raquettes au sein de la classe "Raquette"
 console.log(raquette1);
 console.log(raquette2);
 
@@ -47,8 +47,8 @@ let terrain = new Terrain($("#terrain"));
 console.log(terrain);
 
 setInterval(function(){
-    raquette1.mouvement1 = raquette1.mouvement1 + raquette1.vitRaquette1;
-    raquette2.mouvement2 = raquette2.mouvement2 + raquette2.vitRaquette2;    
+    raquette1.mouvement1 = raquette1.mouvement1 + raquette1.vitRaquette1;//Donne un mouvement à la 1ére raquette
+    raquette2.mouvement2 = raquette2.mouvement2 + raquette2.vitRaquette2;//Donne un mouvement à la 2ème raquette
     balle.gauche = balle.gauche+balle.vitesseX; //Donne un mouvement à la balle vers la droite en fonction de la vitesse
     balle.haut = balle.haut+balle.vitesseY; //Donne un mouvement à la balle vers le bas en fonction de la vitesse
     if(balle.gauche>terrain.largeur){ //Si la balle en X sort du rectangle, celle-ci rebondis
