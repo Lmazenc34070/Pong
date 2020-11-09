@@ -3,7 +3,8 @@ class Raquette{
         this.$element=$element;
         this.mouvement1=parseInt($("#raquette1").css("top"));
         this.mouvement2=parseInt($("#raquette2").css("top"));
-        this.vitRaquette=2;
+        this.vitRaquette1=3;
+        this.vitRaquette2=1;
     }
     bougeRect(){
         this.$element.css("top",raquette1.mouvement1);
@@ -46,8 +47,8 @@ let terrain = new Terrain($("#terrain"));
 console.log(terrain);
 
 setInterval(function(){
-    raquette1.mouvement1 = raquette1.mouvement1 + raquette1.vitRaquette;
-    raquette2.mouvement2 = raquette2.mouvement2 + raquette2.vitRaquette;    
+    raquette1.mouvement1 = raquette1.mouvement1 + raquette1.vitRaquette1;
+    raquette2.mouvement2 = raquette2.mouvement2 + raquette2.vitRaquette2;    
     balle.gauche = balle.gauche+balle.vitesseX; //Donne un mouvement à la balle vers la droite en fonction de la vitesse
     balle.haut = balle.haut+balle.vitesseY; //Donne un mouvement à la balle vers le bas en fonction de la vitesse
     if(balle.gauche>terrain.largeur){ //Si la balle en X sort du rectangle, celle-ci rebondis
@@ -68,19 +69,19 @@ setInterval(function(){
     }
     if(raquette1.mouvement1>terrain.hauteur){ //Si la 2ème raquette sort du rectangle par le bas, elle change de sens
         raquette1.mouvement1 = terrain.hauteur;
-        raquette1.vitRaquette=raquette1.vitRaquette*-1;
+        raquette1.vitRaquette1=raquette1.vitRaquette1*-1;
     }
     if(raquette1.mouvement1<0){ //Si la 2ème raquette sort du rectangle par le haut, elle change de sens
         raquette1.mouvement1 = 0;
-        raquette1.vitRaquette=raquette1.vitRaquette*-1;
+        raquette1.vitRaquette1=raquette1.vitRaquette1*-1;
     }
     if(raquette2.mouvement2>terrain.hauteur){ //Si la 2ème raquette sort du rectangle par le bas, elle change de sens
         raquette2.mouvement2 = terrain.hauteur;
-        raquette2.vitRaquette=raquette2.vitRaquette*-1;
+        raquette2.vitRaquette2=raquette2.vitRaquette2*-1;
     }
     if(raquette2.mouvement2<0){ //Si la 2ème raquette sort du rectangle par le haut, elle change de sens
         raquette2.mouvement1 = 0;
-        raquette2.vitRaquette=raquette2.vitRaquette*-1;
+        raquette2.vitRaquette2=raquette2.vitRaquette2*-1;
     }
     raquette1.bougeRect();
     raquette2.bougeRect();
