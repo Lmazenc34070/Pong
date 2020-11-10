@@ -3,8 +3,8 @@ class Raquette{
         this.$element=$element;
         this.mouvement1=parseInt($("#raquette1").css("top"));
         this.mouvement2=parseInt($("#raquette2").css("top"));
-        this.vitRaquette1=3;//Attribue une vitesse aux raquettes.
-        this.vitRaquette2=3;//Attribue une vitesse aux raquettes.
+        this.vitRaquette1=0.5;//Attribue une vitesse aux raquettes.
+        this.vitRaquette2=0.5;//Attribue une vitesse aux raquettes.
     }
     bougeRect(){
         this.$element.css("top",raquette1.mouvement1);
@@ -23,8 +23,8 @@ class Balle
         this.$element=$element;
         this.gauche=parseInt($("#balle").css("left"));
         this.haut=parseInt($("#balle").css("top"));
-        this.vitesseX=5;//Attribue une vitesse en X
-        this.vitesseY=3;//Attribue une vitesse en Y
+        this.vitesseX=3;//Attribue une vitesse en X
+        this.vitesseY=1;//Attribue une vitesse en Y
     }
     majHTML(){
         this.$element.css("left",balle.gauche);
@@ -51,21 +51,39 @@ setInterval(function(){
     raquette2.mouvement2 = raquette2.mouvement2 + raquette2.vitRaquette2;//Donne un mouvement à la 2ème raquette
     balle.gauche = balle.gauche+balle.vitesseX; //Donne un mouvement à la balle vers la droite en fonction de la vitesse
     balle.haut = balle.haut+balle.vitesseY; //Donne un mouvement à la balle vers le bas en fonction de la vitesse
+
     if(balle.gauche>terrain.largeur){ //Si la balle en X sort du rectangle, celle-ci rebondis
         balle.gauche = terrain.largeur;
         balle.vitesseX=balle.vitesseX*-1;
+        document.getElementById("terrain").style.borderColor='#00ff00';
+    }
+    else{
+        document.getElementById("terrain").style.borderColor='#FFFFFF';
     }
     if(balle.gauche<0){
         balle.gauche = 0;
         balle.vitesseX=balle.vitesseX*-1;
+        document.getElementById("terrain").style.borderColor='#00ff00';
+    }
+    else{
+        document.getElementById("terrain").style.borderColor='#FFFFFF';
     }
     if(balle.haut<0){//Si la balle en Y sort du rectangle, celle-ci rebondis
         balle.haut = 0;
         balle.vitesseY=balle.vitesseY*-1;
+        document.getElementById("terrain").style.borderColor='#00ff00';
+    }
+    else{
+        document.getElementById("terrain").style.borderColor='#FFFFFF';
     }
     if(balle.haut>terrain.hauteur){
         balle.haut = terrain.hauteur;
         balle.vitesseY=balle.vitesseY*-1;
+        document.getElementById("terrain").style.borderColor='#00ff00';
+        
+    }
+    else{
+        document.getElementById("terrain").style.borderColor='#FFFFFF';
     }
     if(raquette1.mouvement1>terrain.hauteur){ //Si la 2ème raquette sort du rectangle par le bas, elle change de sens
         raquette1.mouvement1 = terrain.hauteur;
