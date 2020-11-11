@@ -1,107 +1,114 @@
-class Raquette{
-    constructor($element){
-        this.$element=$element;
-        this.mouvement1=parseInt($("#raquette1").css("top"));
-        this.mouvement2=parseInt($("#raquette2").css("top"));
-        this.vitRaquette1=0.5;//Attribue une vitesse aux raquettes.
-        this.vitRaquette2=0.5;//Attribue une vitesse aux raquettes.
+class Terrain{
+    constructor($html){ //constructor permet d'attribuer des valeurs à ce qu'il y a dans les paranthèses
+        this.$html=$html; //$ désigne un élément JQuerie 
+        // $element 
+        this.largeur=$("#terrain").width(); // fait appel à l'élement css width de l'id terrain du css grâce au $
+        this.hauteur=$("#terrain").height(); // on récupère/importe la valeur de la hauteur du terrain depuis le css
     }
-    bougeRect(){
-        this.$element.css("top",raquette1.mouvement1);
-        this.$element.css("top",raquette2.mouvement2);
-    }
-    
 }
-let raquette1 = new Raquette($("#raquette1"));//Création des raquettes au sein de la classe "Raquette"
-let raquette2 = new Raquette($("#raquette2"));//Création des raquettes au sein de la classe "Raquette"
-console.log(raquette1);
-console.log(raquette2);
 
-class Balle
-{
-    constructor($element){
-        this.$element=$element;
-        this.gauche=parseInt($("#balle").css("left"));
+
+let terrain=new Terrain($("#terrain")); //déclare la variable terrain prenant la valeur de la class Terrain ci-dessus à laquelle on associe les valeurs de la l'id terrain de la fiche css
+console.log(terrain); //affiche les valeurs de la variable terrain dans la console du navigateur web
+
+class Balle{ //Une classe sert seulement pour y répertorier des variables
+    constructor($html){
+        this.$html=$html;
         this.haut=parseInt($("#balle").css("top"));
-        this.vitesseX=3;//Attribue une vitesse en X
-        this.vitesseY=1;//Attribue une vitesse en Y
+        this.gauche=parseInt($("#balle").css("left"));
+        this.vitesseX=Math.random()*2-1; // Va faire en sorte que la balle bouge aléatoirement en générant un chiffre aléatoire, en X.
+        this.vitesseY=Math.random()*2-1; // Va faire en sorte que la balle bouge aléatoirement en générant un chiffre aléatoire, en Y.
+        this.largeur=$('#balle').width(); // On récupère la largeur de la balle pour s'en servir plus tard
+        this.hauteur=$("#balle").height(); // On récupère la l'hauteur de la balle pour s'en servir plus tard
     }
-    majHTML(){
-        this.$element.css("left",balle.gauche);
-        this.$element.css("top",balle.haut);
+    majHTML(){ // Créer la fonction "majHTML" dans la class Balle.
+        this.$html.css("left",balle.gauche);
+        this.$html.css("top",balle.haut);
     }
 }
+
 let balle = new Balle($("#balle"));
-console.log(balle);
 
+class Raquette1{
+    constructor($html){
+        this.$html=$html;
+        this.haut=parseInt($("#raquette1").css("top"));      
+        this.hauteur=parseInt($("#raquette1").css("height"));
+        this.vitesse=1;
+    }
+    Fraquette1(){ // Créer la fonction "majHTML" dans la class raquette1.
+        this.$html.css("top",raquette1.haut);
+    }
 
-class Terrain
-{
-    constructor($element){
-        this.$element=$element;
-        this.largeur=$("#terrain").width();//Récupère la largeur du terrain dans le CSS
-        this.hauteur=$("#terrain").height();//Récupère la hauteur du terrain dans le CSS
+}
+
+class Raquette2{
+    constructor($html){
+        this.$html=$html;
+        this.hauteur=parseInt($("#raquette2").css("height"));
+        this.haut=parseInt($("#raquette2").css("top"));
+        this.vitesse=1;
+    }
+    Fraquette2(){
+        this.$html.css("top",raquette2.haut);
     }
 }
-let terrain = new Terrain($("#terrain"));
-console.log(terrain);
+
+let raquette1 = new Raquette1($("#raquette1")); //Création d'une raquette au sein de la classe "Raquette1"
+let raquette2 = new Raquette2($("#raquette2")); //Création d'une raquette au sein de la classe "raquette2"
 
 setInterval(function(){
-    raquette1.mouvement1 = raquette1.mouvement1 + raquette1.vitRaquette1;//Donne un mouvement à la 1ére raquette
-    raquette2.mouvement2 = raquette2.mouvement2 + raquette2.vitRaquette2;//Donne un mouvement à la 2ème raquette
-    balle.gauche = balle.gauche+balle.vitesseX; //Donne un mouvement à la balle vers la droite en fonction de la vitesse
-    balle.haut = balle.haut+balle.vitesseY; //Donne un mouvement à la balle vers le bas en fonction de la vitesse
+    balle.gauche=balle.gauche+balle.vitesseX; //Si la balle sort pars la gauche
+    balle.haut=balle.haut+balle.vitesseY; //Donne un mouvement à la balle vers le bas en fonction de la vitesse
+    
+    //On enlève balle.largeur afin de faire rebondire la balle convenablement sur la droite du terrain.
+    if(balle.gauche>terrain.largeur-balle.largeur){ //Si la balle sort pars la droite
+        balle.gauche=terrain.largeur-balle.largeur; 
+        balle.vitesseX=balle.vitesseX*-1;
+    }
 
-    if(balle.gauche>terrain.largeur){ //Si la balle en X sort du rectangle, celle-ci rebondis
-        balle.gauche = terrain.largeur;
+    if(balle.gauche<0){ //Si la balle sort pars la gauche.
+        balle.gauche=0;
         balle.vitesseX=balle.vitesseX*-1;
-        document.getElementById("terrain").style.borderColor='#00ff00';
     }
-    else{
-        document.getElementById("terrain").style.borderColor='#FFFFFF';
-    }
-    if(balle.gauche<0){
-        balle.gauche = 0;
-        balle.vitesseX=balle.vitesseX*-1;
-        document.getElementById("terrain").style.borderColor='#00ff00';
-    }
-    else{
-        document.getElementById("terrain").style.borderColor='#FFFFFF';
-    }
-    if(balle.haut<0){//Si la balle en Y sort du rectangle, celle-ci rebondis
-        balle.haut = 0;
+
+    //On enlève balle.largeur afin de faire rebondire la balle convenablement sur le bas du terrain
+    if(balle.haut>terrain.hauteur-balle.hauteur){ //Si la balle sort pars le bas.
+        balle.haut=terrain.hauteur-balle.hauteur;
         balle.vitesseY=balle.vitesseY*-1;
-        document.getElementById("terrain").style.borderColor='#00ff00';
     }
-    else{
-        document.getElementById("terrain").style.borderColor='#FFFFFF';
-    }
-    if(balle.haut>terrain.hauteur){
-        balle.haut = terrain.hauteur;
+
+    if(balle.haut<0){ //Si la balle sort pars le haut.
+        balle.haut=0;
         balle.vitesseY=balle.vitesseY*-1;
-        document.getElementById("terrain").style.borderColor='#00ff00';
-        
     }
-    else{
-        document.getElementById("terrain").style.borderColor='#FFFFFF';
+
+    //Donne un mouvement aux raquettes en fonction de la vitesse.
+    raquette1.haut=raquette1.haut+raquette1.vitesse;
+    raquette2.haut=raquette2.haut+raquette2.vitesse;
+
+    if(raquette1.haut>terrain.hauteur-raquette1.hauteur){ //Si la raquette de gauche sort par le bas.
+        raquette1.haut=terrain.hauteur-raquette1.hauteur; // Utilisation de la haueteur de la raquette afin que le rebond soit pris en compte au premier contact
+        raquette1.vitesse=raquette1.vitesse*-1;
     }
-    if(raquette1.mouvement1>terrain.hauteur){ //Si la 2ème raquette sort du rectangle par le bas, elle change de sens
-        raquette1.mouvement1 = terrain.hauteur;
-        raquette1.vitRaquette1=raquette1.vitRaquette1*-1;
+
+    if(raquette1.haut<0){
+        raquette1.haut=0;
+        raquette1.vitesse=raquette1.vitesse*-1;
     }
-    if(raquette1.mouvement1<0){ //Si la 2ème raquette sort du rectangle par le haut, elle change de sens
-        raquette1.mouvement1 = 0;
-        raquette1.vitRaquette1=raquette1.vitRaquette1*-1;
+
+    if(raquette2.haut>terrain.hauteur-2*raquette2.hauteur){
+        raquette2.haut=terrain.hauteur-2*raquette2.hauteur;// Utilisation de la haueteur de la raquette afin que le rebond soit pris en compte au premier contact
+        raquette2.vitesse=raquette2.vitesse*-1;
     }
-    if(raquette2.mouvement2>terrain.hauteur){ //Si la 2ème raquette sort du rectangle par le bas, elle change de sens
-        raquette2.mouvement2 = terrain.hauteur;
-        raquette2.vitRaquette2=raquette2.vitRaquette2*-1;
+
+    if(raquette2.haut<0-raquette2.hauteur){
+        raquette2.haut=0-raquette2.hauteur;
+        raquette2.vitesse=raquette2.vitesse*-1;
     }
-    if(raquette2.mouvement2<0){ //Si la 2ème raquette sort du rectangle par le haut, elle change de sens
-        raquette2.mouvement1 = 0;
-        raquette2.vitRaquette2=raquette2.vitRaquette2*-1;
-    }
-    raquette1.bougeRect();
-    raquette2.bougeRect();
-    balle.majHTML();//Fait appel à la fonction "majHTML" dans la classe "balle"
+    
+    balle.majHTML();
+    raquette1.Fraquette1();
+    raquette2.Fraquette2();
+
 }, 10);
