@@ -15,7 +15,9 @@ body{
 
 #terrain{
     position: relative;
-    border: 1px solid white; /** Rends la bordure visible et de couleur blanche. **/
+    border: 1px solid #000;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
     
     /** Dimension du terrain **/
     width: 800px;
@@ -36,19 +38,19 @@ body{
 }
 
 #raquette1{
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 10%;
     left: 10%;
-    width: 20px;
-    height: 60px;
+    width: 10px;
+    height: 100px;
     background-color: white;
 }
 
 #raquette2{
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 80%;
     left: 90%;
-    width: 20px;
-    height: 60px;
+    width: 10px;
+    height: 100px;
     background-color: white;
 }
