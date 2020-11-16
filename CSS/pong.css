@@ -35,20 +35,18 @@ body{
     border-radius:100%; /** Fait en sorte que le carré devienne un cercle en arrondissant les bords **/
 }
 
-#raquette1{
-    position : relative;
-    top:10%;
-    left : 10%;
+.raquette{
+    position : absolute;
+    top:50%;
     width : 10px;
     height : 100px;
     background-color : white;
 }
 
+#raquette1{
+    left : 10%;
+}
+
 #raquette2{
-    position : relative;
-    top:80%;
-    left : 90%;
-    width : 10px;
-    height : 100px;
-    background-color : white;
+    right : 10%; /** Mets sur la droite du terrain**/
 }
