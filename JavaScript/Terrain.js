@@ -1,8 +1,13 @@
 class Terrain {
     constructor($html) {
         this.$element = $html;
-
+        /**
+         * @type {number}
+         */
         this.largeur = $html.width();
+        /**
+         * @type {number}
+         */
         this.hauteur = $html.height();
     }
 

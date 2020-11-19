@@ -1,7 +1,7 @@
 class Balle {
     /**
      *
-     * @param $element
+     * @param $html
      */
     constructor($html) {
         this.$element = $html;
@@ -43,7 +43,7 @@ class Balle {
     }
 
     /**
-     *
+     * Le get permet d'otenir une valeur
      * @returns {number}
      */
     get bas() {
@@ -51,7 +51,7 @@ class Balle {
     }
 
     /**
-     *
+     * Le set permet d'initialiser une valeur
      * @param value
      */
     set bas(value) {
@@ -59,7 +59,7 @@ class Balle {
     }
 
     /**
-     *
+     * Le get permet d'otenir une valeur
      * @returns {number}
      */
     get droite() {
@@ -67,7 +67,7 @@ class Balle {
     }
 
     /**
-     *
+     * Le set permet d'initialiser une valeur
      * @param value
      */
     set droite(value) {
