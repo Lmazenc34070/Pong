@@ -1,42 +1,34 @@
 class Balle {
     /**
-     *
      * @param $html
      */
     constructor($html) {
         this.$element = $html;
         /**
-         *
          * @type {number}
          */
         this.hauteur = $html.height();
         /**
-         *
          * @type {number}
          */
         this.largeur = $html.width();
         /**
-         *
          * @type {number}
          */
         this.gauche = parseInt($html.css("left"));
         /**
-         *
          * @type {number}
          */
         this.haut = parseInt($html.css("top"));
         /**
-         *
          * @type {number}
          */
         this.vitesseX = 2;
         /**
-         *
          * @type {number}
          */
         this.vitesseY = 0.5;
         /**
-         *
          * @type {number}
          */
         this.angle = Math.random() * 2 * Math.PI;
