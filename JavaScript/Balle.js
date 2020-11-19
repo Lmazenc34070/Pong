@@ -70,11 +70,11 @@ class Balle {
         this.gauche += Math.cos(this.angle) * this.vitesseX;
         this.haut += Math.sin(this.angle) * this.vitesseY;
 
-        this.limite();
+        this.rebonds();
         this.majHTML();
     }
 
-    limite() {
+    rebonds() {
         //droite
         if ((this.droite) > terrain.largeur) {
             terrain.tiltDroite();
