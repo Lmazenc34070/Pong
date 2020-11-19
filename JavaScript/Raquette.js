@@ -1,31 +1,101 @@
-class Raquette{
-    constructor($html){
-        this.$html=$html;
-        this.haut=parseInt($("#raquette1").css("top"));      
-        this.hauteur=parseInt($("#raquette1").css("height"));
-        this.hauteur=parseInt($("#raquette2").css("height"));
-        this.haut=parseInt($("#raquette2").css("top"));
-        this.vitesse=1;
+class Raquette {
+    constructor($element) {
+
+        this.$element = $element;
+        /**
+         *
+         * @type {number}
+         */
+        this.hauteur = $element.height();
+        /**
+         *
+         * @type {number}
+         */
+        this.largeur = $element.width();
+        /**
+         *
+         * @type {number}
+         */
+        this.gauche = parseInt($element.css("left"));
+        /**
+         *
+         * @type {number}
+         */
+        this.haut = parseInt($element.css("top"));
+        /**
+         *
+         * @type {number}
+         */
+        this.direction = 0;
+        /**
+         *
+         * @type {number}
+         */
+        this.vitesse = 3;
     }
 
-    monte(){
-        this.vitesse=1;
+    /**
+     *
+     * @returns {number}
+     */
+    get bas() {
+        return this.haut + this.hauteur;
     }
 
-    descend(){
-        this.vitesse=1;
+    /**
+     *
+     * @param value
+     */
+    set bas(value) {
+        this.haut = value - this.hauteur;
     }
 
-    get bas(){
-        return this.haut+this.hauteur;
+    /**
+     *
+     * @returns {number}
+     */
+    get droite() {
+        return this.gauche + this.largeur;
     }
 
-    Fraquette(){ // Créer la fonction "Fraquette" dans la classe raquette.
-        this.$html.css("top",raquette1.haut);
-        this.$html.css("top",raquette2.haut);
+    /**
+     *
+     * @param value
+     */
+    set droite(value) {
+        this.gauche = value - this.largeur;
     }
 
+    bouger() {
+        this.haut += this.vitesse * this.direction;
+        this.limite();
+        this.majHTML();
+    }
+
+    monter() {
+        this.direction = -1;
+    }
+
+    descendre() {
+        this.direction = 1;
+    }
+
+    arret() {
+        this.direction = 0;
+    }
+
+    majHTML() {
+        this.$element.css("top", this.haut);
+    }
+
+    limite() {
+        if (this.bas > terrain.hauteur) {
+            this.bas = terrain.hauteur;
+            this.arret();
+        }
+        if (this.haut < 0) {
+            this.haut = 0;
+            this.arret();
+        }
+    }
 }
-
-let raquette1 = new Raquette($("#raquette1")); //Création d'une raquette au sein de la classe "Raquette"
-let raquette2 = new Raquette($("#raquette2")); //Création d'une raquette au sein de la classe "Raquette"

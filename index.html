@@ -1,20 +1,19 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="CSS/pong.css"/>
-        <title>Pong, le FUN !!</title> <!-- Titre de page -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!--importe la bibliothèque jQueries-->
-    </head>
-    <body>
-        <div id="terrain"> <!-- Fait appel a "terrain" grâce à son identifiant -->
-            <div id="balle" ></div> <!-- Fait appel a "balle" au sein de "terrain" grâce à son identifiant -->
-            <div class="raquette" id="raquette1"></div><!-- Fait appel a "raquette1" au sein de "terrain" grâce à son identifiant -->
-            <div class="raquette" id="raquette2"></div><!-- Fait appel a "raquette2" au sein de "terrain" grâce à son identifiant -->
-        </div>
-
-        <script src="JavaScript/Raquette.js"></script>
-        <script src="JavaScript/Terrain.js"></script>
-        <script src="JavaScript/Balle.js"></script>
-        <script src="JavaScript/pong.js"></script>
-        
-    </body>
+<head>
+    <link rel="stylesheet" href="CSS/pong.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Trop fun un Pong !!!</title>
+</head>
+<body>
+<div id="terrain">
+    <div id="balle"></div>
+    <div id="gauche" class="raquette"></div>
+    <div id="droite" class="raquette"></div>
+</div>
+</body>
+<!-- chargement des classes -->
+<script src="JavaScript/Balle.js"></script>
+<script src="JavaScript/Terrain.js"></script>
+<script src="JavaScript/Raquette.js"></script>
+<script src="JavaScript/pong.js"></script>
 </html>

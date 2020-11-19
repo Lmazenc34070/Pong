@@ -1,10 +1,11 @@
-body{
-    background-color: #000;
-    color: #fff;
+body {
+    /** Fond noir, couleur blanche et typographie monospace **/
+    background-color: #000000;
+    color: #ffffff;
     font-family: monospace;
 
-    /** Centre les éléments de la page **/
-    display: flex; 
+    /** permet de centrer les elements dans la page **/
+    display: flex;
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;
@@ -12,41 +13,43 @@ body{
     text-align: center;
 }
 
-#terrain{
-    position : relative;
+/** parametrage du ou des "objets" terrain **/
+#terrain {
+    position: relative;
+
     border: 1px solid #000;
-    border-top-color: #fff;/** Rendre le haut du terrian blanc **/
-    border-bottom-color: #fff;/** Rendre le bas du terrain blanc **/
+    border-top-color: #fff;
+    border-bottom-color: #fff;
 
-    /** Dimensions du terrain **/
-    width : 800px;
+    width: 800px;
     height: 400px;
-
 }
 
-#balle{
-    position : absolute;
-    top: 50%; /** Mets la balle au centre de l'écran en hauteur **/
-    left:50%; /** Mets la balle au centre de l'écran en largeur **/
+/** parametrage du ou des "objets" balle **/
+#balle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
+    border-radius: 100%;
     width: 20px;
-    height:20px;
+    height: 20px;
     background-color: white;
-    border-radius:100%; /** Fait en sorte que le carré devienne un cercle en arrondissant les bords **/
 }
 
-.raquette{
+/** parametrage du ou des "objets" raquette **/
+.raquette {
     position : absolute;
-    top:50%;
+    background-color : white;
     width : 10px;
     height : 100px;
-    background-color : white;
+    top:10%;
 }
 
-#raquette1{
-    left : 10%;
+#droite {
+    right: 1%;
 }
 
-#raquette2{
-    right : 10%; /** Mets sur la droite du terrain**/
+#gauche {
+    left: 1%;
 }

@@ -1,12 +1,60 @@
-class Terrain{
-    constructor($html){ //constructor permet d'attribuer des valeurs à ce qu'il y a dans les paranthèses
-        this.$html=$html; //$ désigne un élément JQuerie 
-        // $element 
-        this.largeur=$("#terrain").width(); // fait appel à l'élement css width de l'id terrain du css grâce au $
-        this.hauteur=$("#terrain").height(); // on récupère/importe la valeur de la hauteur du terrain depuis le css
+class Terrain {
+    constructor($element) {
+        this.$element = $element;
+
+        this.largeur = $element.width();
+        this.hauteur = $element.height();
+    }
+
+    tiltHaut() {
+        //ajouter une classe
+        this.$element.addClass("tiltHaut");
+        let buffer = this;
+
+        setTimeout(
+            function () {
+                //retirer une classe
+                buffer.$element.removeClass("tiltHaut");
+            }, 200
+        );
+    }
+
+    tiltBas() {
+        //ajouter une classe
+        this.$element.addClass("tiltBas");
+        let buffer = this;
+
+        setTimeout(
+            function () {
+                //retirer une classe
+                buffer.$element.removeClass("tiltBas");
+            }, 200
+        );
+    }
+
+    tiltDroite() {
+        //ajouter une classe
+        this.$element.addClass("tiltDroite");
+        let buffer = this;
+
+        setTimeout(
+            function () {
+                //retirer une classe
+                buffer.$element.removeClass("tiltDroite");
+            }, 200
+        );
+    }
+
+    tiltGauche() {
+        //ajouter une classe
+        this.$element.addClass("tiltGauche");
+        let buffer = this;
+
+        setTimeout(
+            function () {
+                //retirer une classe
+                buffer.$element.removeClass("tiltGauche");
+            }, 200
+        );
     }
 }
-
-
-let terrain=new Terrain($("#terrain")); //déclare la variable terrain prenant la valeur de la class Terrain ci-dessus à laquelle on associe les valeurs de la l'id terrain de la fiche css
-console.log(terrain); //affiche les valeurs de la variable terrain dans la console du navigateur web

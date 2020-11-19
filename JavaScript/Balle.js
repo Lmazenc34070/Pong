@@ -1,17 +1,140 @@
-class Balle{ //Une classe sert seulement pour y répertorier des variables
-    constructor($html){
-        this.$html=$html;
-        this.haut=parseInt($("#balle").css("top"));
-        this.gauche=parseInt($("#balle").css("left"));
-        this.vitesseX=Math.random()*2-1; // Va faire en sorte que la balle bouge aléatoirement en générant un chiffre aléatoire, en X.
-        this.vitesseY=Math.random()*2-1; // Va faire en sorte que la balle bouge aléatoirement en générant un chiffre aléatoire, en Y.
-        this.largeur=$('#balle').width(); // On récupère la largeur de la balle pour s'en servir plus tard
-        this.hauteur=$("#balle").height(); // On récupère la l'hauteur de la balle pour s'en servir plus tard
+class Balle {
+    /**
+     *
+     * @param $element
+     */
+    constructor($element) {
+        this.$element = $element;
+        /**
+         *
+         * @type {number}
+         */
+        this.hauteur = $element.height();
+        /**
+         *
+         * @type {number}
+         */
+        this.largeur = $element.width();
+        /**
+         *
+         * @type {number}
+         */
+        this.gauche = parseInt($element.css("left"));
+        /**
+         *
+         * @type {number}
+         */
+        this.haut = parseInt($element.css("top"));
+        /**
+         *
+         * @type {number}
+         */
+        this.vitesseX = 2;
+        /**
+         *
+         * @type {number}
+         */
+        this.vitesseY = 0.5;
+        /**
+         *
+         * @type {number}
+         */
+        this.angle = Math.random() * 2 * Math.PI;
     }
-    majHTML(){ // Créer la fonction "majHTML" dans la class Balle.
-        this.$html.css("left",balle.gauche);
-        this.$html.css("top",balle.haut);
+
+    /**
+     *
+     * @returns {number}
+     */
+    get bas() {
+        return this.haut + this.hauteur;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    set bas(value) {
+        this.haut = value - this.hauteur;
+    }
+
+    /**
+     *
+     * @returns {number}
+     */
+    get droite() {
+        return this.gauche + this.largeur;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    set droite(value) {
+        this.gauche = value - this.largeur;
+    }
+
+    bouger() {
+        this.gauche += Math.cos(this.angle) * this.vitesseX;
+        this.haut += Math.sin(this.angle) * this.vitesseY;
+
+        this.limite();
+        this.majHTML();
+    }
+
+    limite() {
+        //droite
+        if ((this.droite) > terrain.largeur) {
+            terrain.tiltDroite();
+            this.droite = terrain.largeur;
+            this.vitesseX *= -1;
+            this.recentrer();
+        }
+        //gauche
+        if (this.gauche < 0) {
+            terrain.tiltGauche();
+            this.gauche = 0;
+            this.vitesseX *= -1;
+            this.recentrer();
+        }
+        //bas
+        if (this.bas > terrain.hauteur) {
+            terrain.tiltBas();
+            this.bas = terrain.hauteur;
+            this.vitesseY *= -1;
+        }
+        //haut
+        if (this.haut < 0) {
+            terrain.tiltHaut();
+            this.haut = 0;
+            this.vitesseY *= -1;
+        }
+        //Rebonds sur les raquettes
+        //Gauche
+        if(this.gauche < raquetteGauche.droite){ //si la balle dépasse à gauche de la raquette gauche
+            if(this.bas > raquetteGauche.haut){ //et si la balle est plus basse que le haut de la raquette
+                if(this.haut < raquetteGauche.bas){ // et si la balle est plus haute que le bas de la raquette
+                    this.vitesseX *= -1;
+                }
+            }
+        }
+        //Droite
+        if(this.droite > raquetteDroite.gauche){ //si la balle dépasse à droite la raquette droite
+            if(this.bas > raquetteDroite.haut){ //et si la balle est plus basse que le haut de la raquette
+                if(this.haut < raquetteDroite.bas){ // et si la balle est plus haute que le bas de la raquette
+                    this.vitesseX *= -1;
+                }
+            }
+        }
+    }
+
+    recentrer() {
+        this.gauche = terrain.largeur / 2 - this.largeur / 2;
+        this.haut = terrain.hauteur / 2 - this.hauteur / 2;
+    }
+
+    majHTML() {
+        this.$element.css("left", balle.gauche);
+        this.$element.css("top", balle.haut);
     }
 }
-
-let balle = new Balle($("#balle"));
