@@ -1,10 +1,9 @@
 body {
-    /** Fond noir, couleur blanche et typographie monospace **/
     background-color: #000000;
     color: #ffffff;
     font-family: monospace;
 
-    /** permet de centrer les elements dans la page **/
+    /** centre les éléments de la page **/
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -13,7 +12,7 @@ body {
     text-align: center;
 }
 
-/** parametrage du ou des "objets" terrain **/
+/** paramétre du terrain **/
 #terrain {
     position: relative;
 
@@ -25,7 +24,7 @@ body {
     height: 400px;
 }
 
-/** parametrage du ou des "objets" balle **/
+/** Paramétres de la balle **/
 #balle {
     position: absolute;
     top: 50%;
@@ -37,7 +36,7 @@ body {
     background-color: white;
 }
 
-/** parametrage du ou des "objets" raquette **/
+/** paramétres de la classe raquette **/
 .raquette {
     position : absolute;
     background-color : white;
