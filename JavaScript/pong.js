@@ -1,3 +1,4 @@
+//Création de plusieurs objets
 /**
  * @type {Terrain}
  */
@@ -15,14 +16,11 @@ let raquetteGauche = new Raquette($("#gauche"));
  */
 let raquetteDroite = new Raquette($("#droite"));
 
-//boucle afin de modifier la position de la balle et des raquettes toutes les 10 millisecondes
-//les if servent à tester les collisions avec les bordures du terrain, et ainsi de faire rebondir la balle ou la laquette
-
 /**
  * Boucle de jeu, permet d'actualiser le déplacement des raquettes et de la balle
  */
 setInterval(function () {
-    //appel de fonction des classes correspondant aux objets
+    //Utilisation des fonctions présentes dans leurs classes respectives
     balle.bouger();
 
     raquetteGauche.bouger();
@@ -30,13 +28,13 @@ setInterval(function () {
 }, 10);
 
 
-//Ouverture des listeners pour écouter quelles touchent sont utilisées
+//Permet d'identifier sur quelle touche du clavier se passe l'appuie
 window.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
         return
     }
 
-    //Les touches sont detectées on va les bouger
+    //Les touches bougent avec les appuies sur les touches respectives
     if (event.key === "a") {
         raquetteGauche.monter();
     }
@@ -57,7 +55,7 @@ window.addEventListener("keyup", function (event) {
     if (event.defaultPrevented) {
         return
     }
-    //Les touches sont detectées on va les arreter
+    //Quand on relache les touches, les raquettes ne bougent plus
     if (event.key === "a" || event.key === "q") {
         raquetteGauche.arret();
     }

@@ -1,27 +1,27 @@
 class Raquette {
-    constructor($element) {
+    constructor($html) {
 
-        this.$element = $element;
+        this.$element = $html;
         /**
          *
          * @type {number}
          */
-        this.hauteur = $element.height();
+        this.hauteur = $html.height();
         /**
          *
          * @type {number}
          */
-        this.largeur = $element.width();
+        this.largeur = $html.width();
         /**
          *
          * @type {number}
          */
-        this.gauche = parseInt($element.css("left"));
+        this.gauche = parseInt($html.css("left"));
         /**
          *
          * @type {number}
          */
-        this.haut = parseInt($element.css("top"));
+        this.haut = parseInt($html.css("top"));
         /**
          *
          * @type {number}

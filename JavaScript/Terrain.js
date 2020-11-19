@@ -1,9 +1,9 @@
 class Terrain {
-    constructor($element) {
-        this.$element = $element;
+    constructor($html) {
+        this.$element = $html;
 
-        this.largeur = $element.width();
-        this.hauteur = $element.height();
+        this.largeur = $html.width();
+        this.hauteur = $html.height();
     }
 
     tiltHaut() {
