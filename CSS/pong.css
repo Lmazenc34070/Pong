@@ -24,6 +24,21 @@ body {
     height: 400px;
 }
 
+.tiltHaut {
+    border-top-color: rgb(0, 250, 0) !important;
+}
+
+.tiltBas {
+    border-bottom-color: rgb(0, 250, 0) !important;
+}
+.tiltGauche {
+    border-left-color: rgb(250, 0, 0) !important;
+}
+
+.tiltDroite {
+    border-right-color: rgb(250, 0, 0) !important;
+}
+
 /** Paramétres de la balle **/
 #balle {
     position: absolute;

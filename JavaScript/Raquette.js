@@ -59,7 +59,6 @@ class Raquette {
     }
 
     /**
-     *
      * @param value
      */
     set droite(value) {
