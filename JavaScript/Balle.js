@@ -107,6 +107,9 @@ class Balle {
             if(this.bas > raquetteGauche.haut){ //et si la balle est plus basse que le haut de la raquette
                 if(this.haut < raquetteGauche.bas){ // et si la balle est plus haute que le bas de la raquette
                     this.vitesseX *= -1;
+                    if(this.vitesseY <= 8){
+                        this.vitesseY += 1;
+                    }
                 }
             }
         }
@@ -115,6 +118,9 @@ class Balle {
             if(this.bas > raquetteDroite.haut){ //et si la balle est plus basse que le haut de la raquette
                 if(this.haut < raquetteDroite.bas){ // et si la balle est plus haute que le bas de la raquette
                     this.vitesseX *= -1;
+                    if(this.vitesseY <= 8){
+                        this.vitesseY += 1;
+                    }
                 }
             }
         }
