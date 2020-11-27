@@ -64,6 +64,31 @@ class Raquette {
     set droite(value) {
         this.gauche = value - this.largeur;
     }
+    tiltRDroite() {
+        //ajouter une classe
+        this.$element.addClass("tiltRDroite");
+        let buffer = this;
+
+        setTimeout(
+            function () {
+                //retirer une classe
+                buffer.$element.removeClass("tiltRDroite");
+            }, 200
+        );
+    }
+
+    tiltRGauche() {
+        //ajouter une classe
+        this.$element.addClass("tiltRGauche");
+        let buffer = this;
+
+        setTimeout(
+            function () {
+                //retirer une classe
+                buffer.$element.removeClass("tiltRGauche");
+            }, 200
+        );
+    }
 
     bouger() {
         this.haut += this.vitesse * this.direction;
