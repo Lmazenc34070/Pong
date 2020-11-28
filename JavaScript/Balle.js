@@ -104,21 +104,18 @@ class Balle {
      *
      * @returns {number}
      */
-    defAngle()
-    {
-        return this.buf < 0.5 ? (5*Math.PI/4) - Math.random()*(2*Math.PI/4) : (Math.PI/4) - Math.random()*(2*Math.PI/4);
+    defAngle() {
+        return this.buf < 0.5 ? (5 * Math.PI / 4) - Math.random() * (2 * Math.PI / 4) : (Math.PI / 4) - Math.random() * (2 * Math.PI / 4);
     }
 
     /**
      *Augmente la vitesse de la balle jusqu'à un maximum
      */
     accelerer() {
-        if (Math.abs(this.vitesse) < this.vitesseMax)
-        {
+        if (Math.abs(this.vitesse) < this.vitesseMax) {
             this.vitesse *= this.acceleration;
             console.log(Math.abs(this.vitesse));
-        }
-        else{
+        } else {
             this.vitesse = this.vitesseMax;
         }
     }

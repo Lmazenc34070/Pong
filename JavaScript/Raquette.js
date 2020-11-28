@@ -64,6 +64,7 @@ class Raquette {
     set droite(value) {
         this.gauche = value - this.largeur;
     }
+
     tiltRDroite() {
         //ajouter une classe
         this.$element.addClass("tiltRDroite");
