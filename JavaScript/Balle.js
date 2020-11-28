@@ -109,7 +109,7 @@ class Balle {
     }
 
     /**
-     *Augmente la vitesse de la balle jusqu'à un maximum
+     *Augmente la vitesse de la balle jusqu'au maximum
      */
     accelerer() {
         if (Math.abs(this.vitesse) < this.vitesseMax) {
@@ -121,7 +121,7 @@ class Balle {
     }
 
     /**
-     *Recentre la balle au milieu du terrain
+     *Recentre la balle dans le terrain
      */
     recentrer() {
         this.gauche = terrain.largeur / 2 - this.largeur / 2;
@@ -132,14 +132,14 @@ class Balle {
     }
 
     /**
-     *Remet la vitesse de la balle à celle de départ
+     *Remet la vitesse de la balle à celle de base
      */
     vitesseDeBase() {
         this.vitesse = this.vitesseBase;
     }
 
     /**
-     *Fait se déplacer la balle
+     *Donne un mouvement à la balle
      */
     bouger() {
         this.gauche += Math.cos(this.angle) * this.vitesse;
@@ -151,7 +151,7 @@ class Balle {
     }
 
     /**
-     *Défini les limites que la balle ne doit pas dépasser
+     *Permet de faire rebondire la balle
      */
     limite() {
         //droite

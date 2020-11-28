@@ -10,7 +10,6 @@ class Terrain {
          */
         this.hauteur = $html.height();
     }
-
     tiltHaut() {
         //ajouter une classe
         this.$element.addClass("tiltHaut");
