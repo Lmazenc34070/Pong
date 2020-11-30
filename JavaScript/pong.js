@@ -10,11 +10,11 @@ let balle = new Balle($("#balle"));
 /**
  * @type {Raquette}
  */
-let raquetteGauche = new Raquette($("#gauche"));
+let raquetteGauche = new Raquette($("#gauche"),$("#Sgauche"));
 /**
  * @type {Raquette}
  */
-let raquetteDroite = new Raquette($("#droite"));
+let raquetteDroite = new Raquette($("#droite"),$("#Sdroite"));
 
 /**
  * Boucle de jeu, permet d'actualiser le déplacement des raquettes et de la balle

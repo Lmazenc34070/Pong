@@ -1,7 +1,12 @@
 class Raquette {
-    constructor($html) {
+    constructor($html,$score) {
 
         this.$element = $html;
+        /**
+         * @type {number}
+         */
+        this.score = 0;
+        this.$score = $score;
         /**
          *
          * @type {number}
@@ -32,6 +37,12 @@ class Raquette {
          * @type {number}
          */
         this.vitesse = 3;
+    }
+
+
+    gagne(){
+        this.score=this.score+1;
+        this.$score.text(this.score);
     }
 
     /**

@@ -115,7 +115,8 @@ class Balle {
         if (Math.abs(this.vitesse) < this.vitesseMax) {
             this.vitesse *= this.acceleration;
             console.log(Math.abs(this.vitesse));
-        } else {
+        }
+        else {
             this.vitesse = this.vitesseMax;
         }
     }
@@ -163,6 +164,7 @@ class Balle {
             this.droite = terrain.largeur;
             this.angle = Math.PI - this.angle;
             this.recentrer();
+            raquetteGauche.gagne();
         }
         //gauche
         if (this.gauche < 0) {
@@ -173,6 +175,8 @@ class Balle {
             this.gauche = 0;
             this.angle = Math.PI - this.angle;
             this.recentrer();
+            raquetteDroite.gagne();
+
         }
         //bas
         if (this.bas > terrain.hauteur) {
@@ -196,7 +200,6 @@ class Balle {
 
                     this.accelerer();
                     this.angle = Math.PI - this.angle;
-
                     raquetteGauche.tiltRGauche();
                 }
             }
