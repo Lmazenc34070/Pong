@@ -1,5 +1,5 @@
 class Raquette {
-    constructor($html,$score) {
+    constructor($html, $score) {
 
         this.$element = $html;
         /**
@@ -40,8 +40,8 @@ class Raquette {
     }
 
 
-    gagne(){
-        this.score=this.score+1;
+    gagne() {
+        this.score = this.score + 1;
         this.$score.text(this.score);
     }
 
