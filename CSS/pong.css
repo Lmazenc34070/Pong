@@ -76,6 +76,41 @@ body {
 #gauche {
     left: 0%;
 }
+.btn {
+    text-decoration: none;
+    padding: 10px;
+    font-family: arial;
+    font-size: 1em;
+    color: #5f497a;
+    background-color: #fac08f;
+    border-radius: 24px;
+    display:inline-block;
+    cursor:pointer;
+    padding:12px 16px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    border: 4px inset #FFFFFF;
+    box-shadow: 3px 3px 12px #444444;
+    -webkit-box-shadow: 3px 3px 12px #444444;
+    -moz-box-shadow: 3px 3px 12px #444444;
+}
+
+.btn:hover {
+    padding: 10px;
+    font-size: 1em;
+    color: #5f497a;
+    background-color: #fac08f;
+    border-radius: 24px;
+    display:inline-block;
+    cursor:pointer;
+    padding:12px 16px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    border: 4px outset #FFFFFF;
+    box-shadow: 3px 3px 12px #444444;
+    -webkit-box-shadow: 3px 3px 12px #444444;
+    -moz-box-shadow: 3px 3px 12px #444444;
+}
 
 .score {
 /**Propriétés communes au score**/
