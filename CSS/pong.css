@@ -78,7 +78,7 @@ body {
 }
 
 .score {
-    /**CSS Relatif au score**/
+/**Propriétés communes au score**/
     display: flex;
     padding-top: 20%;
     text-align: center;
@@ -86,14 +86,14 @@ body {
 }
 
 #Sgauche {
-    /**Precision pour le score d'id gauche**/
+    /**Différenciation du score gauche**/
     padding-left: 25%;
     float: left;
     color: Yellow;
 }
 
 #Sdroite {
-    /**Precision pour la score d'id gauche**/
+    /**Différenciation du score droite**/
     padding-right: 25%;
     float: right;
     color: pink;
