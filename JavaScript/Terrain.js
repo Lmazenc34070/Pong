@@ -9,6 +9,10 @@ class Terrain {
          * @type {number}
          */
         this.hauteur = $html.height();
+        /**
+         * @type {JQuery<HTMLElement> | jQuery | HTMLElement}
+         */
+        this.$ecranDebut = $(".ecran-debut");
     }
     tiltHaut() {
         //ajouter une classe
@@ -47,6 +51,11 @@ class Terrain {
                 buffer.$element.removeClass("tiltDroite");
             }, 200
         );
+    }
+
+    masqueEcranDebut(){
+        //masque ecran de début
+        this.$ecranDebut.addClass("invisible");
     }
 
     tiltGauche() {

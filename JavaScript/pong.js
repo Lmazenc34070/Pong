@@ -22,7 +22,7 @@ let boutonDepart = document.getElementById("btnDepart");
 /**
  * @type {HTMLElement}
  */
-let titre = document.getElementById("titre");
+let removeEcran = document.getElementById("ecran-debut");
 
 /**
  * Boucle de jeu, permet d'actualiser le déplacement des raquettes et de la balle
@@ -37,10 +37,10 @@ setInterval(function () {
 
 
 boutonDepart.addEventListener("click", () => {
-    if(getComputedStyle(titre).display != "none"){
-        titre.style.display = "none";
+    if(getComputedStyle(removeEcran).display != "none"){
+        removeEcran.style.display = "none";
     } else {
-        titre.style.display = "block";
+        removeEcran.style.display = "block";
     }
 })
 
