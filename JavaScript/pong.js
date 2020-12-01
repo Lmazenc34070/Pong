@@ -15,6 +15,14 @@ let raquetteGauche = new Raquette($("#gauche"),$("#Sgauche"));
  * @type {Raquette}
  */
 let raquetteDroite = new Raquette($("#droite"),$("#Sdroite"));
+/**
+ * @type {HTMLElement}
+ */
+let boutonDepart = document.getElementById("btnDepart");
+/**
+ * @type {HTMLElement}
+ */
+let titre = document.getElementById("titre");
 
 /**
  * Boucle de jeu, permet d'actualiser le déplacement des raquettes et de la balle
@@ -27,6 +35,14 @@ setInterval(function () {
     raquetteDroite.bouger();
 }, 10);
 
+
+boutonDepart.addEventListener("click", () => {
+    if(getComputedStyle(titre).display != "none"){
+        titre.style.display = "none";
+    } else {
+        titre.style.display = "block";
+    }
+})
 
 //Permet d'identifier sur quelle touche du clavier se passe l'appuie
 window.addEventListener("keydown", function (event) {
