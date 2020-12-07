@@ -27,12 +27,16 @@ let removeEcran = document.getElementById("ecran-debut");
 /**
  * Boucle de jeu, permet d'actualiser le déplacement des raquettes et de la balle
  */
-setInterval(function () {
-    //Utilisation des fonctions présentes dans leurs classes respectives
-    balle.bouger();
 
-    raquetteGauche.bouger();
-    raquetteDroite.bouger();
+let demarrer = false;
+
+setInterval(function () {
+    if (demarrer){
+        //Utilisation des fonctions présentes dans leurs classes respectives
+        balle.bouger();
+        raquetteGauche.bouger();
+        raquetteDroite.bouger();
+    }
 }, 10);
 
 
@@ -42,7 +46,10 @@ boutonDepart.addEventListener("click", () => {
     } else {
         removeEcran.style.display = "block";
     }
+    demarrer = true;
 })
+
+
 
 //Permet d'identifier sur quelle touche du clavier se passe l'appuie
 window.addEventListener("keydown", function (event) {
